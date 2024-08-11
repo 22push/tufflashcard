@@ -11,19 +11,47 @@ const Questions = [
   {
     question_id: "2",
     question_description: "In the worst case, the number of comparisons needed to search a singly linked list of length n for a given element is (GATE CS 2002)",
-    question_level: "Easy",
+    question_level: "Hard",
     answer: "adsfd",
     explanation: "asdf",
   },
   {
     question_id: "3",
     question_description: "Let P be a singly linked list. Let Q be the pointer to an intermediate node x in the list. What is the worst-case time complexity of the best known algorithm to delete the node Q from the list?",
+    question_level: "Medium",
+    answer: "adsfd",
+    explanation: "asdf", 
+  },
+  {
+    question_id: "4",
+    question_description: "What is the worst case time complexity of inserting n elements into an empty linked list, if the linked list needs to be maintained in sorted order",
     question_level: "Easy",
     answer: "adsfd",
     explanation: "asdf",
   },
   {
-    question_id: "4",
+    question_id: "5",
+    question_description: "Which of the following sorting algorithms can be used to sort a random linked list with minimum time complexity?",
+    question_level: "Easy",
+    answer: "adsfd",
+    explanation: "asdf",
+  },
+  {
+    question_id: "6",
+    question_description: "In the worst case, the number of comparisons needed to search a singly linked list of length n for a given element is (GATE CS 2002)",
+    question_level: "Hard",
+    answer: "adsfd",
+    explanation: "asdf",
+  },
+  {
+    question_id: "7",
+    question_description: "Let P be a singly linked list. Let Q be the pointer to an intermediate node x in the list. What is the worst-case time complexity of the best known algorithm to delete the node Q from the list?",
+    question_level: "Medium",
+    answer: "adsfd",
+    explanation: "asdf", 
+  },
+  {
+    question_id: "8",
     question_description: "What is the worst case time complexity of inserting n elements into an empty linked list, if the linked list needs to be maintained in sorted order",
     question_level: "Easy",
     answer: "adsfd",
@@ -71,9 +99,9 @@ function Flashcard() {
                 Previous
               </button>
             </div>
-            <Card isFlipped={isFlipped} toggleFlip={toggleFlip} ques_no={currentIndex + 1} question_description={Questions[currentIndex].question_description} answer={Questions[currentIndex].answer} explanation={Questions[currentIndex].explanation} />
+            <Card diff_level = {Questions[currentIndex].question_level} isFlipped={isFlipped} toggleFlip={toggleFlip} ques_no={currentIndex + 1} question_description={Questions[currentIndex].question_description} answer={Questions[currentIndex].answer} explanation={Questions[currentIndex].explanation} />
 
-            <div className="mt-4 h-full ">
+            <div className="mt-4 h-full">
               <button onClick={nextQuestion} className="mx-2 p-2 bg-gray-200 rounded-lg w-24">Next</button>
             </div></>}
         </div>

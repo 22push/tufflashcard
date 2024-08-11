@@ -3,14 +3,27 @@ import './card.css';
 
 function Card(props) {
     const toggleFlip = props.toggleFlip;
+    const diff_level = props.diff_level;
 
+    const color = {
+        Hard: "red-400",
+        Medium: "yellow-300",
+        Easy: 'green-300'
+    };
+
+    console.log(diff_level);
+
+    const curr_color = color[diff_level];
+
+    console.log(curr_color);
     return (
         <div className={`flip-card ${props.isFlipped ? 'flipped' : ''}`} onClick={toggleFlip}>
             <div className="flip-card-inner">
-                <div className="flip-card-front">
+                <div className="flip-card-front items-center ">
+                    <div className={`fixed bg-${curr_color} w-24 mt-[-380px] ml-[250px] rounded-2xl`}>{props.diff_level}</div>
                     <h1 className='heading'>Question {props.ques_no}</h1>
                     <p className='queshead'>
-                    {props.question_description}
+                        {props.question_description}
                     </p>
                 </div>
                 <div className="flip-card-back">
