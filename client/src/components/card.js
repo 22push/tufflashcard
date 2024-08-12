@@ -6,7 +6,7 @@ function Card(props) {
     const diff_level = props.diff_level;
 
     const color = {
-        Hard: "red-400",
+        Hard: "red-300",
         Medium: "yellow-300",
         Easy: 'green-300'
     };
