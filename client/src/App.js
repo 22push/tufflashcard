@@ -5,8 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Quespage from './pages/quespage';
 import MainPage from './pages/mainpage';
 import Editqes from './pages/editquespage';
-// export const ToLink = "https://tufflashcard.onrender.com";
-export const ToLink = "http://localhost:8080";
+export const ToLink = "https://tufflashcard.onrender.com";
+// export const ToLink = "http://localhost:8080";
 function App() {
   return (
     <>
