@@ -3,7 +3,7 @@ import React from 'react'
 function SmallQuestion(props) {
     return (
         <>
-            <div class="relative w-64 h-48 p-6 bg-gray-400 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="relative w-64 h-48 p-6 bg-gray-400 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                 <li className='list-none h-32 overflow-hidden'>
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-wrap ">{props.description}</h5>
                 </li>
@@ -19,3 +19,4 @@ function SmallQuestion(props) {
 }
 
 export default SmallQuestion
+

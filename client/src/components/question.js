@@ -7,7 +7,7 @@ function Allquestion() {
     useEffect(() => {
         const getresponse = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/questions');
+                const response = await axios.get('https://tufflashcard.onrender.com/questions');
 
                 // Response data is directly available from the response object
                 // if (response) {
@@ -24,7 +24,8 @@ function Allquestion() {
     }, []);
     return (
         <>
-            <div className='w-full grid grid-cols-4 gap-4 justify-items-center p-8'>
+            <div className='w-full p-8 grid  gap-4 justify-items-center lg:grid-cols-4 md:grid-cols-2'>
+
                 {Questions.map(des => (
                     <SmallQuestion description={des.description} />
                 ))}

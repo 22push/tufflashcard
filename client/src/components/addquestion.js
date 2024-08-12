@@ -45,7 +45,7 @@ function Addquestion() {
         console.log("Form submitted with data: ", formdata);
         const senddata = async () => {
             try {
-                const reponse = await axios.post("http://localhost:8080/questions", formdata);
+                const reponse = await axios.post("https://tufflashcard.onrender.com/questions", formdata);
                 console.log(reponse);
             }
             catch (err) {
@@ -61,7 +61,7 @@ function Addquestion() {
             {
                 addquestionstate ? <div className='w-full mt-24 h-full bg-black-400 flex justify-center'><button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={addquestion}>Add question</button></div> : <div className='w-full mt-24 h-full bg-black-400 flex justify-center'>
                     
-                    <div className='w-1/2 bg-red-300 flex flex-col justify-center rounded-3xl'>
+                    <div className='w-full bg-red-300 flex flex-col justify-center rounded-3xl m-4 md:w-1/2'>
                     <h1 className='items-center mt-6 text-[50px] text-center font-bold'>Add Question</h1>
                         {preview ? (
                             <div className="p-8 rounded-lg">
@@ -72,7 +72,7 @@ function Addquestion() {
                             </div>
 
                         ) : (
-                            <form className="max-w-sm mx-auto bg-slate-500 p-16 m-12 rounded-3xl">
+                            <form className="w-3/4 mx-auto bg-slate-500 p-16 m-12 rounded-3xl">
                                 <div className="mb-5">
                                     <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Question Description</label>
                                     <input
@@ -124,7 +124,7 @@ function Addquestion() {
                                     />
                                 </div>
 
-                                <div className=' w-full flex flex-row justify-around'>
+                                <div className=' w-full flex flex-col justify-around md:flex-row'>
                                     <button type="submit" className=" text-white bg-green-700  m-1 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" onClick={handleSubmit} >Save</button>
 
                                     <button type="button" className="m-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={onpreview}>Preview</button>

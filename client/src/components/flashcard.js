@@ -74,7 +74,7 @@ function Flashcard() {
   useEffect(() => {
     const getresponse = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/questions');
+        const response = await axios.get('https://tufflashcard.onrender.com/questions');
 
         // Response data is directly available from the response object
         if (response) {
