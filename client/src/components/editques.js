@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Card from './card'
 import { ToLink } from '../App';
 import axios from 'axios';
-function Addquestion() {
+function Editquestion() {
     const inputsRef = useRef({
         description: null,
         difficulty: null,
@@ -135,9 +135,9 @@ function Addquestion() {
                                 </div>
 
                                 <div className=' w-full flex flex-col justify-around md:flex-row'>
-                                    <button type="submit" className=" text-white bg-green-700  m-1 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" onClick={handleSubmit} >Save</button>
+                                    <button type="submit" className=" text-white bg-green-700  m-1 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" onClick={handleSubmit} >Update</button>
 
-                                    <button type="button" className="m-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={onpreview}>Preview</button>
+                                    <button type="button" className="m-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={onpreview}>Delete</button>
 
                                     <button type="button" className="m-1 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-red-700 dark:focus:ring-red-800" onClick={discardquestion}>Discard</button>
                                 </div>
@@ -149,4 +149,4 @@ function Addquestion() {
     );
 }
 
-export default Addquestion;
+export default Editquestion;

@@ -5,7 +5,8 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "https://tufflashcard.vercel.app"
+  // origin: "https://tufflashcard.vercel.app"
+  origin: "http://localhost:3000"
 };
 
 app.use(cors(corsOptions));

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Card from './card'
 import axios from 'axios';
 import Loader from './loader';
+import { ToLink } from '../App';
 // const Questions = [
 //   {
 //     question_id: "1",
@@ -74,7 +75,7 @@ function Flashcard() {
   useEffect(() => {
     const getresponse = async () => {
       try {
-        const response = await axios.get('https://tufflashcard.onrender.com/questions');
+        const response = await axios.get(`${ToLink}/questions`);
 
         // Response data is directly available from the response object
         if (response) {

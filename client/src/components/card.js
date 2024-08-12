@@ -3,7 +3,6 @@ import './card.css';
 
 function Card(props) {
     const toggleFlip = props.toggleFlip;
-    const diff_level = props.diff_level;
     return (
         <div className={`flip-card ${props.isFlipped ? 'flipped' : ''}`} onClick={toggleFlip}>
             <div className="flip-card-inner">

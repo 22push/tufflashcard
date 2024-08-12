@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { ToLink } from '../App';
 import SmallQuestion from './smallquestioncard'
 function Allquestion() {
     const [Questions, setQuestions] = useState([]);
@@ -7,7 +8,7 @@ function Allquestion() {
     useEffect(() => {
         const getresponse = async () => {
             try {
-                const response = await axios.get('https://tufflashcard.onrender.com/questions');
+                const response = await axios.get(`${ToLink}/questions`);
 
                 // Response data is directly available from the response object
                 // if (response) {
@@ -27,7 +28,7 @@ function Allquestion() {
             <div className='w-full p-8 grid  gap-4 justify-items-center lg:grid-cols-4 md:grid-cols-2'>
 
                 {Questions.map(des => (
-                    <SmallQuestion description={des.description} />
+                    <SmallQuestion description={des.description} id = {des.id} />
                 ))}
 
             </div>
