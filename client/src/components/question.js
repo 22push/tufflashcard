@@ -28,7 +28,7 @@ function Allquestion() {
             <div className='w-full p-8 grid  gap-4 justify-items-center lg:grid-cols-4 md:grid-cols-2'>
 
                 {Questions.map(des => (
-                    <SmallQuestion description={des.description} id = {des.id} />
+                    <SmallQuestion description={des.description} id = {des.id} diffculty = {des.diff_level} answer={des.answer} explanation ={des.explanation} />
                 ))}
 
             </div>

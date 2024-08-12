@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import Card from './card'
 import { ToLink } from '../App';
 import axios from 'axios';
+import { useSelector} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 function Editquestion() {
     const inputsRef = useRef({
         description: null,
@@ -9,7 +11,8 @@ function Editquestion() {
         answer: null,
         explanation: null,
     });
-    const [formdata, setFormdata] = useState({});
+    const navigate = useNavigate();
+    const [formdata, setFormdata] = useState(useSelector((state) => state.question.questionupdate));
     const [preview, setPreview] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
     const [addquestionstate, setaddquestionstate] = useState(true);
@@ -34,12 +37,24 @@ function Editquestion() {
         setFormdata(data);
         console.log(data);
     };
-    function addquestion() {
-        setaddquestionstate(!addquestionstate);
-    }
-    function discardquestion() {
-        setFormdata([]);
+    function deletedata() {
+        // setFormdata([]);
+        const deletedata = async () => {
+            try {
+                const reponse = await axios.delete(`${ToLink}/questions/${formdata.id}`);
+                console.log(reponse);
+                setFormdata({});
+                navigate('/admin');
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+        deletedata();
         setaddquestionstate(true);
+    }
+    function backtoadmin(){
+        navigate('/admin');
     }
     async function handleSubmit(e) {
         e.preventDefault();
@@ -54,9 +69,10 @@ function Editquestion() {
         console.log("Form submitted with data: ", data);
         const senddata = async () => {
             try {
-                const reponse = await axios.post(`${ToLink}/questions`, data);
+                const reponse = await axios.patch(`${ToLink}/questions/${formdata.id}`, data);
                 console.log(reponse);
                 setFormdata({});
+                navigate('/admin');
             }
             catch (err) {
                 console.log(err);
@@ -68,11 +84,10 @@ function Editquestion() {
 
     return (
         <>
-            {
-                addquestionstate ? <div className='w-full mt-24 h-full bg-black-400 flex justify-center'><button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={addquestion}>Add question</button></div> : <div className='w-full mt-24 h-full bg-black-400 flex justify-center'>
+        <div className='w-full mt-24 h-full bg-black-400 flex justify-center'>
                     
                     <div className='w-full bg-red-300 flex flex-col justify-center rounded-3xl m-4 md:w-1/2'>
-                    <h1 className='items-center mt-6 text-[50px] text-center font-bold'>Add Question</h1>
+                    <h1 className='items-center mt-6 text-[50px] text-center font-bold'>Update Question</h1>
                         {preview ? (
                             <div className="p-8 rounded-lg">
                                 <Card diff_level={formdata.difficulty} isFlipped={isFlipped} toggleFlip={toggleFlip} question_description={formdata.description} answer={formdata.answer} explanation={formdata.explanation} />
@@ -137,14 +152,15 @@ function Editquestion() {
                                 <div className=' w-full flex flex-col justify-around md:flex-row'>
                                     <button type="submit" className=" text-white bg-green-700  m-1 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" onClick={handleSubmit} >Update</button>
 
-                                    <button type="button" className="m-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={onpreview}>Delete</button>
+                                    <button type="button" className="m-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={onpreview}>Preview</button>
 
-                                    <button type="button" className="m-1 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-red-700 dark:focus:ring-red-800" onClick={discardquestion}>Discard</button>
+                                    <button type="button" className="m-1 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-red-700 dark:focus:ring-red-800" onClick={deletedata}>Delete</button>
+                                    <button type="button" className="m-1 text-white bg-yellow-400 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-400  dark:hover:bg-red-700 dark:focus:ring-red-800" onClick={backtoadmin}>Back</button>
                                 </div>
                             </form>
                         )}
                     </div>
-                </div>}
+                </div>
         </>
     );
 }

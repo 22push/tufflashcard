@@ -1,9 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import store from './../store/store'
+import * as questionaction from './../store/actions/quesstateaction'
 function SmallQuestion(props) {
     const nevigate = useNavigate();
     function editques(id){
+        const data =  {
+            id: props.id,
+            description:props.description,
+            diff_level:props.diffculty,
+            answer:props.answer,
+            explanation:props.explanation
+        }
         nevigate(`/admin/${id}`)
+        store.dispatch(questionaction.setQuestionUp(data))
     }
     return (
         <>
