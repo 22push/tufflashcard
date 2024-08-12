@@ -7,7 +7,7 @@ function Quespage() {
     <>
         <Navbar/>
         <Flashcard/>
-        <Allquestion/>
+        {/* <Allquestion/> */}
     </>
   )
 }

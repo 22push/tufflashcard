@@ -60,6 +60,11 @@ import Loader from './loader';
 //     explanation: "asdf",
 //   }
 // ]
+const color = {
+        Hard: "#EE4E4E",
+        Medium: "yellow-300",
+        Easy: "#399918"
+    };
 function Flashcard() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -111,8 +116,10 @@ function Flashcard() {
     <>
       <div className='w-full mt-24 h-full bg-black-400 flex justify-center'>
         <div className='w-1/2 h-[500px] bg-red-300 flex justify-center rounded-3xl' >
-          {comquiz ? <><div className='h-[450px] w-[400px] bg-slate-600 m-auto rounded-2xl flex justify-center'><p className='font-sans text-3xl'>Thank you <br></br> for attempting</p>
-            <button onClick={playagain}>Play again</button></div></> : <><div className="mt-4 h-full">
+          {comquiz ? <>
+          <div className='h-[450px] w-[400px] bg-slate-600 m-auto rounded-2xl flex flex-col justify-start'>
+           <div className='w-full text-center font-bold text-slate-200'> <p className='font-sans m-20 text-[40px]'>Thank you for attempting</p></div>
+            <div className='w-full  items-center justify-center'><button className="w-36 ml-32 text-white bg-green-700  m-1 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-800" onClick={playagain}>Play again</button></div></div></> : <><div className="mt-4 h-full">
               <button
                 onClick={prevQuestion}
                 className={`mx-2 p-2 bg-gray-200 rounded-lg w-24 ${currentIndex === 0 ? 'cursor-not-allowed' : 'cursor-pointer'}`}
@@ -122,7 +129,7 @@ function Flashcard() {
               </button>
             </div>
             {/* <Loader /> */}
-            {!getresponse ? <Loader/> : <Card diff_level = {Questions[currentIndex].diff_level} isFlipped={isFlipped} toggleFlip={toggleFlip} ques_no={currentIndex + 1} question_description={Questions[currentIndex].description} answer={Questions[currentIndex].answer} explanation={Questions[currentIndex].explanation} />}
+            {!getresponse ? <Loader/> : <Card color={color[Questions[currentIndex].diff_level]} diff_level = {Questions[currentIndex].diff_level} isFlipped={isFlipped} toggleFlip={toggleFlip} ques_no={currentIndex + 1} question_description={Questions[currentIndex].description} answer={Questions[currentIndex].answer} explanation={Questions[currentIndex].explanation} />}
             {/* <Card diff_level = {Questions[currentIndex].diff_level} isFlipped={isFlipped} toggleFlip={toggleFlip} ques_no={currentIndex + 1} question_description={Questions[currentIndex].description} answer={Questions[currentIndex].answer} explanation={Questions[currentIndex].explanation} /> */}
 
             <div className="mt-4 h-full">
