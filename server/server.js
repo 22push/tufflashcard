@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:3000"
+  origin: "https://tufflashcard-git-main-pushkargupta063-gmailcoms-projects.vercel.app/"
 };
 
 app.use(cors(corsOptions));
