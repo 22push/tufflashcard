@@ -78,7 +78,7 @@ function Flashcard() {
         const response = await axios.get(`${ToLink}/questions`);
 
         // Response data is directly available from the response object
-        if (response) {
+        if (response.data !==null) {
           setgetresponse(true);
         }
         console.log(response.data);

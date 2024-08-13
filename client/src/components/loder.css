@@ -1,15 +1,17 @@
 /* HTML: <div class="loader"></div> */
 .loader {
-    width: fit-content;
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 30px;
-    padding-bottom: 8px;
-    margin-top: 200px;
-    background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
-    animation: l2 2s linear infinite;
-  }
-  .loader:before {
-    content:"Loading..."
-  }
-  @keyframes l2 {to{background-size: 100% 3px}}
+  --c:#000;
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 50px;
+  color: #0000;
+  margin: auto;
+  overflow: hidden;
+  text-shadow: 0 0 var(--c),11ch 0 var(--c);
+  animation: l6 2s infinite linear;
+}
+.loader:before {
+  content:"Loading..."
+}
+@keyframes l6 {to{text-shadow:-11ch 0 var(--c),0ch 0 var(--c)}}

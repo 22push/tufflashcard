@@ -1,6 +1,11 @@
 import React from 'react'
 import userimg from './../assets/user.png'
+import { useNavigate } from 'react-router-dom'
 function Navbar() {
+    const nevigate  = useNavigate();
+    function gotohome (){
+        nevigate('/')
+    }
     return (
         <>
             <div className='fixed bg-red-200 dark:bg-[#000000]  font-dmSans top-0 z-30 mx-0 mt-0 w-full border-b-2 border-zinc-200 dark:border-none'><nav className="bg-red-200 border-gray-200 dark:bg-gray-900">
@@ -9,7 +14,7 @@ function Navbar() {
                     <div className="flex items-center mr-10 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                         <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                             <span className="sr-only">Open user menu</span>
-                            <img className="w-14 h-14 rounded-full" src={userimg} alt="" />
+                            <img className="w-14 h-14 rounded-full" src={userimg} alt="" onClick={gotohome}/>
 
                         </button>
                     </div>
