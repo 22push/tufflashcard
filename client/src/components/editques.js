@@ -44,6 +44,7 @@ function Editquestion() {
                 const reponse = await axios.delete(`${ToLink}/questions/${formdata.id}`);
                 console.log(reponse);
                 setFormdata({});
+                window.alert("Question deleted successfully");
                 navigate('/admin');
             }
             catch (err) {
@@ -71,6 +72,7 @@ function Editquestion() {
             try {
                 const reponse = await axios.patch(`${ToLink}/questions/${formdata.id}`, data);
                 console.log(reponse);
+                window.alert("Question updated successfully");
                 setFormdata({});
                 navigate('/admin');
             }
@@ -154,8 +156,8 @@ function Editquestion() {
 
                                     <button type="button" className="m-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={onpreview}>Preview</button>
 
-                                    <button type="button" className="m-1 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-red-700 dark:focus:ring-red-800" onClick={deletedata}>Delete</button>
-                                    <button type="button" className="m-1 text-white bg-yellow-400 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-400  dark:hover:bg-red-700 dark:focus:ring-red-800" onClick={backtoadmin}>Back</button>
+                                    <button type="button" className="m-1 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-bg-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" onClick={deletedata}>Delete</button>
+                                    <button type="button" className="m-1 text-white bg-yellow-400 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-400  dark:hover:bg-yellow-400 dark:focus:ring-yellow-400" onClick={backtoadmin}>Back</button>
                                 </div>
                             </form>
                         )}

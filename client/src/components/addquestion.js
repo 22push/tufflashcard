@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import Card from './card'
 import { ToLink } from '../App';
 import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
 function Addquestion() {
     const inputsRef = useRef({
         description: null,
@@ -9,6 +10,7 @@ function Addquestion() {
         answer: null,
         explanation: null,
     });
+    // const navigate = useNavigate();
     const [formdata, setFormdata] = useState({});
     const [preview, setPreview] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
@@ -56,6 +58,8 @@ function Addquestion() {
             try {
                 const reponse = await axios.post(`${ToLink}/questions`, data);
                 console.log(reponse);
+                window.alert("Question added successfully")
+                // navigate('/admin');
                 setFormdata({});
             }
             catch (err) {
@@ -68,6 +72,7 @@ function Addquestion() {
 
     return (
         <>
+
             {
                 addquestionstate ? <div className='w-full mt-24 h-full bg-black-400 flex justify-center'><button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={addquestion}>Add question</button></div> : <div className='w-full mt-24 h-full bg-black-400 flex justify-center'>
                     
@@ -143,8 +148,10 @@ function Addquestion() {
                                 </div>
                             </form>
                         )}
+                        
                     </div>
                 </div>}
+
         </>
     );
 }
